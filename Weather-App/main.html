@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/style.css"/>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
         <title>Weather App</title>
 </head>
 <body>
     <div class="weather-app">
     <header>
-    <form class="search-form">
-        <input type="search" placeholder="City..." required class="search-form-input"/>
+    <form class="search-form" id="search-form">
+        <input type="search" placeholder="City..." required class="search-form-input" id="search-form-input"/>
         <input type="submit" value="Search" class="search-form-button"/>
     </form>
     </header>
     <main>    
-        <h1>London</h1>
+        <h1 class="city" id="city"></h1>
         <p class="date-heading">
         Thursday 18:00
         </p>
@@ -26,10 +27,11 @@
         <br />
         Humidity: <strong>48%</strong>, Wind: <strong>5mph</strong>
     </div>
-        <div class="weather-app-temperature">☁️ 5°C</div>
+        <div class="weather-app-temperature">☁️ <span class="temperature" id="temperature"></span>°C</div>
     </div>
 </main>
     <footer>Coded by <a href="https://github.com/ClaireBruce" target="_blank">Claire Bruce</a> open-sourced on <a href="https://github.com/" target="_blank">GitHub</a> hosted on <a href="https://www.netlify.com/" target="_blank">Netlify</a></footer>
 </div>
 </body>
+<script src="src/index.js"></script>
 </html>
