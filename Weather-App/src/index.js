@@ -7,8 +7,12 @@ function fetchWeather(response) {
     let windSpeedElement = document.querySelector("#windSpeed");
     let date = new Date(response.data.time * 1000);
     let timeElement = document.querySelector("#time");
+    let iconElement = document.querySelector("#icon");
+    
+    
+    
 
-console.log(response.data);
+    console.log(response.data);
 
     temperatureElement.innerHTML = Math.round(temperature);
     descriptionElement.innerHTML = capitalize(response.data.condition.description);
@@ -16,6 +20,7 @@ console.log(response.data);
     windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
     cityElement.innerHTML = response.data.city;
     timeElement.innerHTML = formatDate(date);
+    icon.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon"/>`;
 }
 
 function formatDate(date) {

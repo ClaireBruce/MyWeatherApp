@@ -12,7 +12,7 @@
     <div class="weather-app">
     <header>
     <form class="search-form" id="search-form">
-        <input type="search" placeholder="City..." required class="search-form-input" id="search-form-input"/>
+        <input type="search" placeholder="Enter a city..." required class="search-form-input" id="search-form-input"/>
         <input type="submit" value="Search" class="search-form-button"/>
     </form>
     </header>
@@ -27,9 +27,8 @@
         Humidity: <strong><span id="humidity"></span>%</strong>, Wind: <strong><span id="windSpeed"></span>mph</strong>
     </div>
         <div class="weather-app-temperature-container">
-        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
-        class="weather-app-icon"
-        />
+            <div id="icon">
+            </div>
         <span class="weather-app-temperature" id="temperature"></span>
         <span class="weather-app-temperature-unit">°C</span>
     </div>
