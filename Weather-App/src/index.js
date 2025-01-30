@@ -1,11 +1,55 @@
 function fetchWeather(response) {
-    let temperature = Math.round(response.data.temperature.current);
     let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = temperature;
-
+    let temperature = response.data.temperature.current;
     let cityElement = document.querySelector("#city");
+    let descriptionElement = document.querySelector("#description");
+    let humidityElement = document.querySelector("#humidity");
+    let windSpeedElement = document.querySelector("#windSpeed");
+    let date = new Date(response.data.time * 1000);
+    let timeElement = document.querySelector("#time");
 
+console.log(response.data);
+
+    temperatureElement.innerHTML = Math.round(temperature);
+    descriptionElement.innerHTML = capitalize(response.data.condition.description);
+    humidityElement.innerHTML = response.data.temperature.humidity;
+    windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
     cityElement.innerHTML = response.data.city;
+    timeElement.innerHTML = formatDate(date);
+}
+
+function formatDate(date) {
+    let minutes = date.getMinutes();
+    let hours = date.getHours();
+    let day = date.getDay();
+  
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+  
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+  
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+  
+    let formattedDay = days[day];
+
+    return `${formattedDay} ${hours}:${minutes}`;
+}
+
+function capitalize(text) {
+return (!text || !text.length) ?
+text :
+(text[0].toUpperCase() + text.slice(1));
 }
 
 function searchCity(city) {
